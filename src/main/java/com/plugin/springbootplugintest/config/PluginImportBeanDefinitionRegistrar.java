@@ -1,5 +1,6 @@
 package com.plugin.springbootplugintest.config;
 
+import com.plugin.springbootplugintest.utils.ClassLoaderUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -10,11 +11,8 @@ import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
 import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotationMetadata;
 
-import java.net.URL;
-import java.net.URLClassLoader;
-
 /**
- * 插件类注册bean
+ * 启动时注册bean
  *
  * @author zlt
  * @version 1.0
@@ -37,22 +35,13 @@ public class PluginImportBeanDefinitionRegistrar implements ImportBeanDefinition
     @SneakyThrows
     @Override
     public void registerBeanDefinitions(AnnotationMetadata importingClassMetadata, BeanDefinitionRegistry registry) {
-        ClassLoader classLoader = getClassLoader(targetUrl);
+        ClassLoader classLoader = ClassLoaderUtil.getClassLoader(targetUrl);
         Class<?> clazz = classLoader.loadClass(pluginClass);
 
         BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(clazz);
         BeanDefinition beanDefinition = builder.getBeanDefinition();
 
         registry.registerBeanDefinition(clazz.getSimpleName(), beanDefinition);
-    }
-
-    private ClassLoader getClassLoader(String url) {
-        try {
-            return new URLClassLoader(new URL[] {new URL(url)});
-        } catch (Exception e) {
-            log.error("getClassLoader-error", e);
-            return null;
-        }
     }
 
     @Override
