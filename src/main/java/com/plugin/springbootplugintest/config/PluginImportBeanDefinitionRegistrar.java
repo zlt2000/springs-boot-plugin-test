@@ -40,8 +40,8 @@ public class PluginImportBeanDefinitionRegistrar implements ImportBeanDefinition
 
         BeanDefinitionBuilder builder = BeanDefinitionBuilder.genericBeanDefinition(clazz);
         BeanDefinition beanDefinition = builder.getBeanDefinition();
-
-        registry.registerBeanDefinition(clazz.getSimpleName(), beanDefinition);
+        registry.registerBeanDefinition(clazz.getName(), beanDefinition);
+        log.info("register bean [{}],Class [{}] success.", clazz.getName(), clazz);
     }
 
     @Override

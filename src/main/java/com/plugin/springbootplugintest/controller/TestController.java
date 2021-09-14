@@ -51,8 +51,8 @@ public class TestController {
     public Object reload() throws ClassNotFoundException {
         ClassLoader classLoader = ClassLoaderUtil.getClassLoader(targetUrl);
         Class<?> clazz = classLoader.loadClass(pluginClass);
-        springUtil.registerBean(clazz.getSimpleName(), clazz);
-        PluginInterface plugin = (PluginInterface)springUtil.getBean(clazz.getSimpleName());
+        springUtil.registerBean(clazz.getName(), clazz);
+        PluginInterface plugin = (PluginInterface)springUtil.getBean(clazz.getName());
         return plugin.sayHello("test reload");
     }
 }

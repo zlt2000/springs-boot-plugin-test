@@ -46,13 +46,8 @@ public class SpringUtil implements ApplicationContextAware {
     public void registerBean(String beanName, Class<?> clazz) {
         // 通过BeanDefinitionBuilder创建bean定义
         BeanDefinitionBuilder beanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(clazz);
-        // 尝试移除之前相同的bean
-        if (defaultListableBeanFactory.containsBean(beanName)) {
-            defaultListableBeanFactory.removeBeanDefinition(beanName);
-        }
         // 注册bean
-        defaultListableBeanFactory
-                .registerBeanDefinition(beanName, beanDefinitionBuilder.getRawBeanDefinition());
+        defaultListableBeanFactory.registerBeanDefinition(beanName, beanDefinitionBuilder.getRawBeanDefinition());
         log.info("register bean [{}],Class [{}] success.", beanName, clazz);
     }
 
