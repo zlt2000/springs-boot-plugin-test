@@ -1,4 +1,4 @@
-package com.plugin.springbootplugintest.utils;
+package com.plugin.users.utils;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
@@ -10,11 +10,11 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
- * TODO
+ * Spring 工具类
  *
  * @author zlt
  * @version 1.0
- * @date 2021/9/14
+ * @date 2021/10/5
  * <p>
  * Blog: https://zlt2000.gitee.io
  * Github: https://github.com/zlt2000
@@ -49,10 +49,6 @@ public class SpringUtil implements ApplicationContextAware {
         // 注册bean
         defaultListableBeanFactory.registerBeanDefinition(beanName, beanDefinitionBuilder.getRawBeanDefinition());
         log.info("register bean [{}],Class [{}] success.", beanName, clazz);
-    }
-
-    public <T> T getBean(Class<T> tClass) {
-        return applicationContext.getBean(tClass);
     }
 
     public Object getBean(String name) {

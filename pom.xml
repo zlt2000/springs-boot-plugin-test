@@ -5,49 +5,21 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.4</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.5.5</version>
     </parent>
     <groupId>com.plugin</groupId>
     <artifactId>SpringBootPluginTest</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SpringBootPluginTest</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Spring Boot 动态插件</description>
+    <packaging>pom</packaging>
     <properties>
         <java.version>1.8</java.version>
         <hutool.version>5.7.12</hutool.version>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-    </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
+    <modules>
+        <module>plugin-users</module>
+        <module>plugin-impl</module>
+    </modules>
 </project>

@@ -1,6 +1,6 @@
-package com.plugin.springbootplugintest.config;
+package com.plugin.users.config;
 
-import com.plugin.springbootplugintest.utils.ClassLoaderUtil;
+import com.plugin.users.utils.ClassLoaderUtil;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -16,7 +16,7 @@ import org.springframework.core.type.AnnotationMetadata;
  *
  * @author zlt
  * @version 1.0
- * @date 2021/9/14
+ * @date 2021/10/5
  * <p>
  * Blog: https://zlt2000.gitee.io
  * Github: https://github.com/zlt2000

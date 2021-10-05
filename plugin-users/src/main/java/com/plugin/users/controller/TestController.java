@@ -1,9 +1,9 @@
-package com.plugin.springbootplugintest.controller;
+package com.plugin.users.controller;
 
-import com.plugin.springbootplugintest.utils.ClassLoaderUtil;
-import com.plugin.springbootplugintest.utils.SpringUtil;
+import com.plugin.PluginInterface;
+import com.plugin.users.utils.ClassLoaderUtil;
+import com.plugin.users.utils.SpringUtil;
 import org.springframework.beans.factory.annotation.Value;
-import plugin.PluginInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  *
  * @author zlt
  * @version 1.0
- * @date 2021/9/13
+ * @date 2021/10/5
  * <p>
  * Blog: https://zlt2000.gitee.io
  * Github: https://github.com/zlt2000
