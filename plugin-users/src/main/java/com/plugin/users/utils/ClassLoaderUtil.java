@@ -24,8 +24,7 @@ public class ClassLoaderUtil {
             if (!method.isAccessible()) {
                 method.setAccessible(true);
             }
-            URLClassLoader classLoader = new URLClassLoader(new URL[]{new URL(url)}
-                    , ClassLoader.getSystemClassLoader());
+            URLClassLoader classLoader = new URLClassLoader(new URL[]{}, ClassLoader.getSystemClassLoader());
             method.invoke(classLoader, new URL(url));
             return classLoader;
         } catch (Exception e) {
