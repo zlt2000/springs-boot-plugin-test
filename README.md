@@ -1,5 +1,7 @@
-#### 目录结构
+#### 详细说明
+[《Spring Boot 如何热加载jar实现动态插件？》](https://mp.weixin.qq.com/s/Fg-jsoFon5LwsPAaBbeiew)
 
+#### 目录结构
 - **plugin-impl**：插件实现
 - **plugin-users**：插件使用样例
 - **plugins**：插件包存放目录
