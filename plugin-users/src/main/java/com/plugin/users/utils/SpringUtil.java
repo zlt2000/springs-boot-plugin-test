@@ -51,6 +51,13 @@ public class SpringUtil implements ApplicationContextAware {
         log.info("register bean [{}],Class [{}] success.", beanName, clazz);
     }
 
+    public void removeBean(String beanName) {
+        if(defaultListableBeanFactory.containsBeanDefinition(beanName)) {
+            defaultListableBeanFactory.removeBeanDefinition(beanName);
+        }
+        log.info("remove bean [{}] success.", beanName);
+    }
+
     public Object getBean(String name) {
         return applicationContext.getBean(name);
     }

@@ -3,6 +3,7 @@ package com.plugin.users.controller;
 import com.plugin.PluginInterface;
 import com.plugin.users.utils.ClassLoaderUtil;
 import com.plugin.users.utils.SpringUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ import javax.annotation.Resource;
  * Blog: https://zlt2000.gitee.io
  * Github: https://github.com/zlt2000
  */
+@Slf4j
 @RestController
 public class TestController {
     @Autowired(required = false)
@@ -52,7 +54,32 @@ public class TestController {
         ClassLoader classLoader = ClassLoaderUtil.getClassLoader(targetUrl);
         Class<?> clazz = classLoader.loadClass(pluginClass);
         springUtil.registerBean(clazz.getName(), clazz);
-        PluginInterface plugin = (PluginInterface)springUtil.getBean(clazz.getName());
-        return plugin.sayHello("test reload");
+        Object bean = springUtil.getBean(clazz.getName());
+        if(bean instanceof PluginInterface){
+            PluginInterface plugin = (PluginInterface)bean;
+            this.pluginInterface = plugin;
+            return plugin.sayHello("test reload");
+        }else{
+            log.info(bean.getClass().getInterfaces()[0].getName());
+            return bean.toString();
+        }
+    }
+
+    /**
+     * 移除bean
+     * @return
+     * @throws ClassNotFoundException
+     */
+    @GetMapping("/remove")
+    public Object remove() throws ClassNotFoundException {
+        ClassLoader classLoader = ClassLoaderUtil.getClassLoader(targetUrl);
+        Class<?> clazz = classLoader.loadClass(pluginClass);
+        springUtil.removeBean(clazz.getName());
+        this.pluginInterface = null;
+        Object bean = springUtil.getBean(clazz.getName());
+        if(bean!=null) {
+            log.info(bean.toString());
+        }
+        return clazz.getName();
     }
 }
