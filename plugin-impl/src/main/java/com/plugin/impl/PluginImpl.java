@@ -5,11 +5,8 @@ import com.plugin.CustomAccessInterface;
 import com.plugin.PluginInterface;
 import com.plugin.Result;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-@Service
 public class PluginImpl implements PluginInterface {
-
     @Autowired
     private CustomAccessInterface customAccessInterface;
 

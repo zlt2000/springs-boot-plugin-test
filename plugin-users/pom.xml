@@ -40,17 +40,6 @@
             <artifactId>plugin-interface</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
-        <dependency>
-            <groupId>net.lingala.zip4j</groupId>
-            <artifactId>zip4j</artifactId>
-            <version>2.9.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.plugin</groupId>
-            <artifactId>plugin-impl</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <!-- 设置 jitpack.io 插件仓库 -->
@@ -60,7 +49,6 @@
             <url>https://jitpack.io</url>
         </pluginRepository>
     </pluginRepositories>
-
 
     <build>
         <plugins>
@@ -73,38 +61,6 @@
                         <goals>
                             <goal>repackage</goal>
                         </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>com.github.core-lib</groupId>
-                <artifactId>xjar-maven-plugin</artifactId>
-                <version>4.0.2</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build</goal>
-                        </goals>
-                        <phase>package</phase>
-                        <configuration>
-                            <password>io.xjar</password>
-                            <!-- optional
-                            <algorithm/>
-                            <keySize/>
-                            <ivSize/>
-                            <includes>
-                                <include/>
-                            </includes>
-                            <excludes>
-                                <exclude/>
-                            </excludes>
-                            <sourceDir/>
-                            <sourceJar/>
-                            <targetDir/>
-                            <targetJar/>
-                            -->
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>

@@ -1,11 +1,12 @@
 package com.plugin;
 
+import com.plugin.users.config.PluginImportBeanDefinitionRegistrar;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Import;
 
-//@ComponentScan("com.plugin.impl")
 @SpringBootApplication
-//@Import(PluginImportBeanDefinitionRegistrar.class)
+@Import(PluginImportBeanDefinitionRegistrar.class)
 public class SpringBootPluginTestApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootPluginTestApplication.class, args);
